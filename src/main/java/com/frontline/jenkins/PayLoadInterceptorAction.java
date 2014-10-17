@@ -3,7 +3,6 @@
  */
 package com.frontline.jenkins;
 
-import hudson.Extension;
 import hudson.model.Job;
 import hudson.model.Project;
 
@@ -20,7 +19,6 @@ import org.kohsuke.stapler.WebMethod;
  * @author frontline
  *
  */
-@Extension
 public class PayLoadInterceptorAction {
 
 	/**
@@ -38,11 +36,7 @@ public class PayLoadInterceptorAction {
 		if (project != null) {
 			project.scheduleBuild2(0);
 		}
-		return HttpResponses.plainText("Buld triggered?");
-	}
-
-	public HttpResponse doStart() {
-		return HttpResponses.redirectTo(".");
+		return HttpResponses.plainText("Buld triggered");
 	}
 
 	@SuppressWarnings("rawtypes")
