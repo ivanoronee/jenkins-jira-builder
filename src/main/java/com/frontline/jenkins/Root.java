@@ -5,6 +5,7 @@ package com.frontline.jenkins;
 
 import hudson.Extension;
 import hudson.model.RootAction;
+import hudson.model.AbstractProject;
 import hudson.model.Project;
 
 import org.kohsuke.stapler.HttpResponse;
@@ -33,7 +34,7 @@ public class Root implements RootAction {
 	public HttpResponse doBuildJob(@QueryParameter String issueId) {
 
 		@SuppressWarnings("rawtypes")
-		Project project = PayLoadInterceptorAction.getMatchingJob(issueId);
+		AbstractProject project = PayLoadInterceptorAction.getMatchingJob(issueId);
 		if (project != null) {
 			project.scheduleBuild2(0);
 		}
