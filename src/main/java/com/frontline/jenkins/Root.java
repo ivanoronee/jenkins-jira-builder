@@ -35,7 +35,7 @@ public class Root implements RootAction {
 
 		@SuppressWarnings("rawtypes")
 		AbstractProject project = PayLoadInterceptorAction.getMatchingJob(issueId);
-		if (project != null) {
+		if (project != null && project.isBuildable()) {
 			project.scheduleBuild2(0);
 		}
 		return HttpResponses.plainText("Buld triggered: "+issueId);
