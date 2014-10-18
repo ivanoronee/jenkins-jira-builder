@@ -21,7 +21,7 @@ public class PayLoadInterceptorAction {
 		List<Project> projects = Jenkins.getInstance().getAllItems(
 				Project.class);
 		for (Project project : projects) {
-			if (project instanceof Job) {
+			if (project instanceof Job && issueId != null) {
 				if (project.getName().contains(issueId)) {
 					return (Project) project;
 				}
